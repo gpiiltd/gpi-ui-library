@@ -1,8 +1,16 @@
 # UI LIBRARY
 
-# coding style
-1. FONTS: All font sizes (mobile,web) will be declared in the tailwind,config file.
-2. SCREEN SIZES : All screen sizes should be declared in the tailwind,config file
-3. COLORS : All colors should be declared in the tailwind,config file
-4. Every component should have a return type
-5. No data, method should have  type ANY evry data, object, array shouild be specific on the data type it receives or returns.
+# coding Style
+To ensure consistency and maintainability, please adhere to the following guidelines:
+
+1.Typography
+All font sizes for mobile and web will be declared in the tailwind.config file.
+2. Screen Sizes
+All screen sizes will be declared in the tailwind.config file.
+3. Color Scheme
+All colors will be declared in the tailwind.config file.
+4. Component Structure
+Every component must have a specified return type.
+5. Type Safety
+No data or method should use the ANY type.
+Every data object, array, and function parameter must have a specific, explicitly defined type.
