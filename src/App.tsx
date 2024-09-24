@@ -1,10 +1,11 @@
 import React from "react";
+import Button from "./component/Button";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>UI LIBRARY</p>
+        <Button />
       </header>
     </div>
   );
