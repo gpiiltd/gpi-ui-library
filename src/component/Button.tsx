@@ -1,11 +1,40 @@
-import React from "react";
-const Button = () => {
+import React, { FC } from "react";
+import { ButtonProps } from "./types";
+import { FadeLoader } from "react-spinners";
+
+const Button: FC<ButtonProps> = ({
+  text,
+  loading,
+  onClick,
+  active,
+  bg_color,
+  text_color,
+  border_color,
+}) => {
   return (
-    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-    Click me
-  </button>
-  )
-  
+    <div
+      className={`w-full flex items-center justify-center content-cenyter  py-2  rounded-md  font-medium transition duration-300 border-2 border-transparent ${
+        active ? "" : "opacity-30"
+      }`}
+      style={{
+        backgroundColor: bg_color,
+        color: text_color,
+        borderColor: border_color,
+      }}
+    >
+      <button
+        onClick={onClick}
+        disabled={loading || !active}
+        className={`w-button_width h-button_height border-none flex justify-center items-center font-bold ${loading ? "pt-5" : "pt-0"}`}
+      >
+        {loading ? (
+         <FadeLoader color="#B8C1CB" radius={2} height={6} margin={-5} />
+        ) : (
+          <span>{text}</span>
+        )}
+      </button>
+    </div>
+  );
 };
 
 export default Button;
