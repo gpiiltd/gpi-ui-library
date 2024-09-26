@@ -1,12 +1,9 @@
 import React from "react";
-import Button from "./component/Button";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <Button />
-      </header>
+      <header className="header"></header>
     </div>
   );
 }
