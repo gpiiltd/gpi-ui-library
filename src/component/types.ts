@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface ButtonProps {
   bg_color?: string;
   text?: string;
@@ -15,6 +17,11 @@ export interface TextInputProps {
   placeholder?: string;
   helperText?: string;
   placeHolder?: string;
+  icon?:ReactNode;
+  onClick?: () => void;
+  focusStyle?: string;
+
+
 
 }
 

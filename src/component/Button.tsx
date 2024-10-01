@@ -24,7 +24,6 @@ const Button: FC<ButtonProps> = ({
       }}
     >
       <button
-      type="submit"
         onClick={onClick}
         disabled={loading || !active}
         className={`w-full_width h-button_height border-none flex justify-center items-center font-bold ${
