@@ -36,6 +36,13 @@ export interface TypographyProps {
   className?: string;
 }
 
+export interface CardProps {
+  titleLeft: React.ReactNode;
+  titleRight: React.ReactNode;
+  children: React.ReactNode;
+  width?: string;
+  height?: string;
+
 export interface LoaderProps {
   isOpen: boolean;
   onClose: () => void;
