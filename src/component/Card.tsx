@@ -17,7 +17,7 @@ const Card: FC<CardProps> = ({
         <div className="flex justify-between items-center mb-4">
           <h4 className="text-xl font-bold">{titleLeft}</h4>
           <h4 className="text-xl font-bold">{titleRight}</h4>
-        </div>{" "}
+        </div>
         <div className="overflow-y-auto h-full">{children}</div>
       </div>
     </div>
