@@ -5,8 +5,17 @@ import { ModalProps } from "./types";
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, width }) => {
   if (!isOpen) return null;
 
+  // Close modal on outside click
+  const handleOutsideClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (event.target === event.currentTarget) {
+      onClose();
+    }
+  };
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+    <div
+      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
+      onClick={handleOutsideClick}
+    >
       <div
         className="bg-white rounded-lg shadow-lg p-6 "
         style={{
