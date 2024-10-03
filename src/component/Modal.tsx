@@ -1,12 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect } from "react";
-
-interface ModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  children: React.ReactNode;
-  width?: string;
-}
+import { ModalProps } from "./types";
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, width }) => {
   if (!isOpen) return null;

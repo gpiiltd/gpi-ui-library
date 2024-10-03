@@ -17,12 +17,9 @@ export interface TextInputProps {
   placeholder?: string;
   helperText?: string;
   placeHolder?: string;
-  icon?:ReactNode;
+  icon?: ReactNode;
   onClick?: () => void;
   focusStyle?: string;
-
-
-
 }
 
 export enum TypographyVariant {
@@ -37,4 +34,11 @@ export interface TypographyProps {
   children: React.ReactNode;
   variant: TypographyVariant;
   className?: string;
+}
+
+export interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  children: React.ReactNode;
+  width?: string;
 }
