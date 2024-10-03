@@ -36,6 +36,13 @@ export interface TypographyProps {
   className?: string;
 }
 
+export interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  children: React.ReactNode;
+  width?: string;
+  closeIcon?: string;
+
 export interface CardProps {
   titleLeft: React.ReactNode;
   titleRight: React.ReactNode;
@@ -46,4 +53,5 @@ export interface CardProps {
 export interface LoaderProps {
   isOpen: boolean;
   onClose: () => void;
+
 }
