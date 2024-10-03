@@ -11,6 +11,21 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, width }) => {
       onClose();
     }
   };
+
+  // Close modal on Escape key press
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === "Escape") {
+      onClose();
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [handleKeyDown]);
   return (
     <div
       className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
