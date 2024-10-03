@@ -15,3 +15,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+/* Add this to your CSS file */
+.loader {
+  position: relative;
+  width: 64px; /* Adjust size as needed */
+  height: 64px; /* Adjust size as needed */
+}
+
+.loader-circle {
+  border: 8px solid #E7F0F5;
+  border-top: 8px solid  #007A61;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  animation: spin 2s linear infinite; /* Spin animation */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
