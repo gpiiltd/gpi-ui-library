@@ -41,4 +41,5 @@ export interface ModalProps {
   onClose: () => void;
   children: React.ReactNode;
   width?: string;
+  closeIcon?: string;
 }

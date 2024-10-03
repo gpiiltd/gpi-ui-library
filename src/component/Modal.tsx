@@ -1,8 +1,14 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useEffect } from "react";
+import React, { FC, useEffect } from "react";
 import { ModalProps } from "./types";
 
-const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, width }) => {
+const Modal: FC<ModalProps> = ({
+  isOpen,
+  onClose,
+  children,
+  closeIcon,
+  width,
+}) => {
   if (!isOpen) return null;
 
   // Close modal on outside click
@@ -32,18 +38,19 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, width }) => {
       onClick={handleOutsideClick}
     >
       <div
-        className="bg-white rounded-lg shadow-lg p-6 "
+        className="bg-white rounded-lg shadow-lg p-6 relative"
         style={{
           width: width,
         }}
       >
-        {children}
         <button
           onClick={onClose}
-          className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
+          className="absolute top-2 right-2  text-gray-600 hover:text-gray-900"
         >
-          Close
+          {closeIcon && <img src={closeIcon} alt="Close" className="h-6 w-6" />}
         </button>
+
+        {children}
       </div>
     </div>
   );

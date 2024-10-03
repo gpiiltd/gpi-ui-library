@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Modal from "./component/Modal";
+import closeIcon from "./component/Assets/closeIcon.svg";
 
 const App = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -16,6 +17,7 @@ const App = () => {
         isOpen={isModalOpen}
         onClose={() => setModalOpen(false)}
         width="600px"
+        closeIcon={closeIcon} 
       >
         <h2 className="text-lg font-bold">My Modal</h2>
         <p>This is the content of the modal!</p>
