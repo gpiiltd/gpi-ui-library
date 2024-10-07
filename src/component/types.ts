@@ -55,3 +55,8 @@ export interface LoaderProps {
   onClose: () => void;
 
 }
+
+export interface BreadcrumbProps {
+  steps: { label: string; route: string }[];
+  currentStep: number;
+}
