@@ -55,6 +55,13 @@ export interface LoaderProps {
   onClose: () => void;
 
 }
+
+export interface SearchBarProps {
+  placeholder?: string;
+  onChange?: (value: string) => void;
+  onSubmit?: (value: string) => void;
+  suggestions?: string[];
+
 export interface FooterProps {
   children: ReactNode;
   bg_color?: string;
