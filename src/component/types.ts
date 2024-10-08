@@ -55,3 +55,9 @@ export interface LoaderProps {
   onClose: () => void;
 
 }
+export interface FooterProps {
+  children: ReactNode;
+  bg_color?: string;
+  fullWidth?: string; // Optional width prop
+
+}
