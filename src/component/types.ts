@@ -55,3 +55,9 @@ export interface LoaderProps {
   onClose: () => void;
 
 }
+
+export interface  TableRow  {
+  name: string;
+  description: string;
+  highlightText?: string[]; 
+};
