@@ -56,12 +56,15 @@ export interface LoaderProps {
 
 }
 
-
 export interface  TableRow  {
   name: string;
   description: string;
   highlightText?: string[]; 
 };
+
+export interface BreadcrumbProps {
+  steps: { label: string; route: string }[];
+  currentStep: number;
 
 export interface SearchBarProps {
   placeholder?: string;
@@ -73,5 +76,4 @@ export interface FooterProps {
   children: ReactNode;
   bg_color?: string;
   fullWidth?: string; // Optional width prop
-
 }
