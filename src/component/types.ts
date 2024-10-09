@@ -55,11 +55,11 @@ export interface LoaderProps {
   onClose: () => void;
 }
 
-export interface  TableRow  {
+export interface TableRow {
   name: string;
   description: string;
-  highlightText?: string[]; 
-};
+  highlightText?: string[];
+}
 
 export interface BreadcrumbProps {
   steps: { label: string; route: string }[];
@@ -72,9 +72,15 @@ export interface SearchBarProps {
   onSubmit?: (value: string) => void;
   suggestions?: string[];
 }
-  
+
 export interface FooterProps {
   children: ReactNode;
   bg_color?: string;
   fullWidth?: string; // Optional width prop
+}
+
+export interface HeaderProps {
+  logo?: string;
+  children?: React.ReactNode;
+  bg_color?: string;
 }
