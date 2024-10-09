@@ -56,6 +56,10 @@ export interface LoaderProps {
 
 }
 
+export interface BreadcrumbProps {
+  steps: { label: string; route: string }[];
+  currentStep: number;
+
 export interface SearchBarProps {
   placeholder?: string;
   onChange?: (value: string) => void;
@@ -66,5 +70,4 @@ export interface FooterProps {
   children: ReactNode;
   bg_color?: string;
   fullWidth?: string; // Optional width prop
-
 }
