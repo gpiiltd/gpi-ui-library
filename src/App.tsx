@@ -1,9 +1,10 @@
 import React from "react";
 import UILibraary from "./Pages/UILibrary";
-import { BrowserRouter as Router,Routes } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Typography from "./component/Typography";
 import { TypographyVariant } from "./component/types";
 import { CiStopSign1 } from "react-icons/ci";
+import ViewModal from "./Pages/ViewModal";
 
 function App() {
   return (
@@ -23,11 +24,9 @@ function App() {
         </div>
 
         <div className="w-3/4 p-8 pl-15 bg-white">
-        <Typography
-              variant={TypographyVariant.TITLE}
-            >  Components 
-            </Typography>
+          <Typography variant={TypographyVariant.TITLE}> Components</Typography>
           <Routes>
+            <Route path="/gpi/storybook/modal" element={<ViewModal />} />
           </Routes>
         </div>
       </div>

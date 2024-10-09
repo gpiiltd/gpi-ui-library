@@ -30,6 +30,14 @@ const UILibraary = () => {
             <BiAnalyse className="text-orange-600" /> Bredcrumb Component
           </div>
         </Link>
+        <Link
+          to="gpi/storybook/modal"
+          className="mb-2 p-2 text-white shadow rounded hover:text-green-600 hover:shadow-2xl "
+        >
+          <div className="flex gap-2 items-center">
+            <BiAnalyse className="text-orange-600" /> Modal Component
+          </div>
+        </Link>
       </nav>
     </div>
   );
