@@ -5,8 +5,6 @@ import Typography from "./component/Typography";
 import { TypographyVariant } from "./component/types";
 import { CiStopSign1 } from "react-icons/ci";
 import ViewHeader from "./Pages/ViewHeader";
-import Typography from "./component/Typography";
-import { TypographyVariant } from "./component/types";
 import ViewModal from "./Pages/ViewModal";
 import ViewCard from "./Pages/ViewCard";
 
@@ -41,3 +39,4 @@ function App() {
 }
 
 export default App;
+
