@@ -1,15 +1,25 @@
 import React from "react";
 import { FooterProps } from "./types";
 
-const Footer: React.FC<FooterProps> = ({ children, bg_color }) => {
+const Footer: React.FC<FooterProps> = ({
+  logo,
+  children,
+  bg_color,
+  className = "",
+}) => {
   return (
     <footer
-      className={`bg-${bg_color} text-white py-4 bottom-0 absolute w-full_width`}
+      className={`bg-${bg_color} text-white bottom-0  w-full_width ${className}`}
       style={{
         backgroundColor: bg_color,
       }}
     >
-      <div className="container mx-auto px-4 text-center">{children}</div>
+      <div className=" flex text-center gap-8 px-6 ">
+        <div className="flex items-center">
+          <img src={logo} alt=" Logo" />
+        </div>
+        {children}
+      </div>
     </footer>
   );
 };
