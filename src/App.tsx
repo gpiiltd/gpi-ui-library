@@ -7,6 +7,7 @@ import { CiStopSign1 } from "react-icons/ci";
 import ViewHeader from "./Pages/ViewHeader";
 import ViewModal from "./Pages/ViewModal";
 import ViewCard from "./Pages/ViewCard";
+import ViewInput from "./Pages/ViewInput";
 
 function App() {
   return (
@@ -31,6 +32,8 @@ function App() {
             <Route path="/gpi/storybook/header" element={<ViewHeader />} />
             <Route path="/gpi/storybook/modal" element={<ViewModal />} />
             <Route path="/gpi/storybook/card" element={<ViewCard />} />
+            <Route path="/gpi/storybook/inputs" element={<ViewInput />} />
+
           </Routes>
         </div>
       </div>
