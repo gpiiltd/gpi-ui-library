@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Typography from "./component/Typography";
 import { TypographyVariant } from "./component/types";
 import { CiStopSign1 } from "react-icons/ci";
+import ViewModal from "./Pages/ViewModal";
 import ViewCard from "./Pages/ViewCard";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <div className="w-3/4 p-8 pl-15 bg-white">
           <Typography variant={TypographyVariant.TITLE}> Components</Typography>
           <Routes>
+            <Route path="/gpi/storybook/modal" element={<ViewModal />} />
             <Route path="/gpi/storybook/card" element={<ViewCard />} />
           </Routes>
         </div>
