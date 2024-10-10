@@ -1,9 +1,12 @@
 import React from "react";
 import UILibraary from "./Pages/UILibrary";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Typography from "./component/Typography";
 import { TypographyVariant } from "./component/types";
 import { CiStopSign1 } from "react-icons/ci";
+import ViewHeader from "./Pages/ViewHeader";
+import Typography from "./component/Typography";
+import { TypographyVariant } from "./component/types";
 import ViewModal from "./Pages/ViewModal";
 import ViewCard from "./Pages/ViewCard";
 
@@ -27,6 +30,7 @@ function App() {
         <div className="w-3/4 p-8 pl-15 bg-white">
           <Typography variant={TypographyVariant.TITLE}> Components</Typography>
           <Routes>
+            <Route path="/gpi/storybook/header" element={<ViewHeader />} />
             <Route path="/gpi/storybook/modal" element={<ViewModal />} />
             <Route path="/gpi/storybook/card" element={<ViewCard />} />
           </Routes>
