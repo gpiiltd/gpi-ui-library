@@ -11,7 +11,7 @@ const Card: FC<CardProps> = ({
   return (
     <div className="flex items-start justify-center h-screen mt-12">
       <div
-        className="bg-white rounded-lg shadow-lg p-20 "
+        className="bg-white rounded-lg shadow-lg p-8 "
         style={{ width: width, height: height }}
       >
         <div className="flex justify-between items-center mb-4">

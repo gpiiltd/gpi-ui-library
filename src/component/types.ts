@@ -44,8 +44,8 @@ export interface ModalProps {
   closeIcon?: string;
 }
 export interface CardProps {
-  titleLeft: React.ReactNode;
-  titleRight: React.ReactNode;
+  titleLeft?: React.ReactNode;
+  titleRight?: React.ReactNode;
   children: React.ReactNode;
   width?: string;
   height?: string;
