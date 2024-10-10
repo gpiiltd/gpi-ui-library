@@ -5,6 +5,7 @@ import Typography from "./component/Typography";
 import { TypographyVariant } from "./component/types";
 import { CiStopSign1 } from "react-icons/ci";
 import ViewModal from "./Pages/ViewModal";
+import ViewCard from "./Pages/ViewCard";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Typography variant={TypographyVariant.TITLE}> Components</Typography>
           <Routes>
             <Route path="/gpi/storybook/modal" element={<ViewModal />} />
+            <Route path="/gpi/storybook/card" element={<ViewCard />} />
           </Routes>
         </div>
       </div>
