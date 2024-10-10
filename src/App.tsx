@@ -8,6 +8,7 @@ import ViewHeader from "./Pages/ViewHeader";
 import ViewModal from "./Pages/ViewModal";
 import ViewCard from "./Pages/ViewCard";
 import ViewInput from "./Pages/ViewInput";
+import ViewButton from "./Pages/ViewButton";
 
 function App() {
   return (
@@ -33,6 +34,8 @@ function App() {
             <Route path="/gpi/storybook/modal" element={<ViewModal />} />
             <Route path="/gpi/storybook/card" element={<ViewCard />} />
             <Route path="/gpi/storybook/inputs" element={<ViewInput />} />
+            <Route path="/gpi/storybook/button" element={<ViewButton />} />
+
 
           </Routes>
         </div>
