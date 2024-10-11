@@ -78,3 +78,8 @@ export interface FooterProps {
   bg_color?: string;
   fullWidth?: string; // Optional width prop
 }
+
+export interface HeaderProps {
+  logo: string;
+  children: ReactNode;
+}

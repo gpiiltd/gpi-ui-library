@@ -1,8 +1,5 @@
 import React, { FC } from "react";
-interface HeaderProps {
-  logo?: string;
-  children?: React.ReactNode;
-}
+import { HeaderProps } from "../types";
 
 const Header: FC<HeaderProps> = ({ logo, children }) => {
   return (
