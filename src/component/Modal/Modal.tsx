@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import React, { FC, useEffect } from "react";
 import { ModalProps } from "../types";
 
@@ -19,7 +18,6 @@ const Modal: FC<ModalProps> = ({
   };
 
   // Close modal on Escape key press
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleKeyDown = (event: KeyboardEvent) => {
     if (event.key === "Escape") {
       onClose();
