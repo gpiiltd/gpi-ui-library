@@ -19,6 +19,10 @@ This project is built using the following technologies:
 - [Contributing](#contributing)
 - [License](#license)
 
+
+** -------------------------------------------------------------------------------------------**
+
+
 ## Installation
 
 To get started with the GPI UI Components Library, follow these steps:
@@ -33,6 +37,9 @@ To get started with the GPI UI Components Library, follow these steps:
    ```bash
    npm install
    ```
+
+** -------------------------------------------------------------------------------------------**
+
 
 ## Usage
 
@@ -50,15 +57,62 @@ You can then use the component in your JSX:
 </Header>
 ```
 
+
+** -------------------------------------------------------------------------------------------**
+
+
 ## Components
 
 This library includes a variety of components, such as:
 
-- **Header**: A reusable header component with logo and icons.
-- **Button**: A customizable button component.
+- **Header**: {
+   A reusable header component that can display a logo, navigation icons, and other customizable content.
+
+   Props:
+      bg_color (color): Background color of the header.
+      logo (string): Logo of the header.
+      children (Tags): Children of the header
+}
+
+- **Button**: {
+   A customizable button component that can display a button.
+
+   Props:
+}
+
+- **Input**: {
+   A reusable component for receiving user input in the form of text, numbers, passwords, etc.
+
+   Props: 
+      type : Determines the type of input (e.g., text, password, email, number, etc.).
+      placeholder : Provides a hint to the user of what should be entered in the input.
+      value : The value of the input field. In controlled components, this is bound to state.
+      onChange : A function that gets called whenever the value of the input changes. This is where you typically update the state in a controlled component.
+      disabled : If true, disables the input field, preventing user interaction.
+      required : Marks the input as required for form validation.
+}
+
+- **Breadcrumb**: {
+   A reusable component is a navigation aid used in user interfaces to show the user's location within a website or application.
+
+   Props:
+}
+
+- **Modal**: {
+   A reusable header component that can display a logo, navigation icons, and other customizable content.
+
+   Props:
+      isOpen (bool): Open the modal.
+      onClose (bool): Close the modal.
+      closeIcon (icon/svg): Close icon of the modal.
+      width (double): Width of the modal.
+      children (Tags): Children of the modal.
+}
+
 - **Card**: A card component for displaying content.
 
-For detailed documentation on each component, please refer to the [Storybook](https://yourstorybooklink.com).
+
+** -------------------------------------------------------------------------------------------**
 
 ## Contributing
 
@@ -69,6 +123,10 @@ We welcome contributions to the GPI UI Components Library! To contribute:
 3. Make your changes and commit them (`git commit -m 'Add some feature'`).
 4. Push to the branch (`git push origin feature/YourFeature`).
 5. Open a pull request.
+
+
+
+** -------------------------------------------------------------------------------------------**
 
 ## License
 
