@@ -71,6 +71,16 @@ const UILibraary = () => {
         >
           <BiAnalyse className="text-orange-600" /> Card Component
         </NavLink>
+        <NavLink
+          to="gpi/storybook/footer"
+          className={({ isActive }) =>
+            `mb-2 p-2 shadow rounded flex gap-2 items-center ${
+              isActive ? "bg-green-600 text-white" : "text-white hover:text-green-600 hover:shadow-2xl"
+            }`
+          }
+        >
+          <BiAnalyse className="text-orange-600" /> Footer Component
+        </NavLink>
       </nav>
     </div>
   );
