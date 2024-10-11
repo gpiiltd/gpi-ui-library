@@ -8,6 +8,7 @@ import ViewHeader from "./Pages/ViewHeader";
 import ViewModal from "./Pages/ViewModal";
 import ViewCard from "./Pages/ViewCard";
 import ViewInput from "./Pages/ViewInput";
+import ViewButton from "./Pages/ViewButton";
 import ViewFooter from "./Pages/ViewFooter";
 
 function App() {
@@ -26,7 +27,6 @@ function App() {
           </div>
           <UILibraary />
         </div>
-
         <div className="w-3/4 p-8 pl-15 bg-white">
           <Typography variant={TypographyVariant.TITLE}> Components</Typography>
           <Routes>
@@ -34,6 +34,7 @@ function App() {
             <Route path="/gpi/storybook/modal" element={<ViewModal />} />
             <Route path="/gpi/storybook/card" element={<ViewCard />} />
             <Route path="/gpi/storybook/inputs" element={<ViewInput />} />
+            <Route path="/gpi/storybook/button" element={<ViewButton />} />
             <Route path="/gpi/storybook/footer" element={<ViewFooter />} />
           </Routes>
         </div>
