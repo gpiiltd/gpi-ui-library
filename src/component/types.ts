@@ -76,7 +76,8 @@ export interface SearchBarProps {
 export interface FooterProps {
   children: ReactNode;
   bg_color?: string;
-  fullWidth?: string; // Optional width prop
+  fullWidth?: string;
+  logo?:any
 }
 
 export interface HeaderProps {
