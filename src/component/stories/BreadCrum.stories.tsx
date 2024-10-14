@@ -16,7 +16,7 @@ const meta = {
       { label: "Step 2", route: "/step-2" },
       { label: "Step 3", route: "/step-3" },
     ],
-    currentStep: 1, 
+    currentStep: 0, 
   },
 } satisfies Meta<typeof Breadcrumb>;
 
@@ -30,7 +30,8 @@ export const BreadcrumbSample: Story = {
       { label: "Step 2", route: "/step-2" },
       { label: "Step 3", route: "/step-3" },
     ],
-    currentStep: 1,
+    currentStep: 0,
+    activeColor: "#FF5733",
   },
   decorators: [
     (Story) => (

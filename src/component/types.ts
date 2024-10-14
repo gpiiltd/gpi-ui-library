@@ -64,6 +64,7 @@ export interface  TableRow  {
 export interface BreadcrumbProps {
   steps: { label: string; route: string }[];
   currentStep: number;
+  activeColor?:string
 }
 
 export interface SearchBarProps {
