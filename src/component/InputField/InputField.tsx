@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useField, useFormikContext } from "formik";
 import { TextInputProps, TypographyVariant } from "../types";
 import Typography from "../Typography/Typography";
@@ -15,9 +15,12 @@ const InputField: React.FC<TextInputProps> = ({
 }) => {
   const [field, meta] = useField(props.name);
   const { setTouched, validateField } = useFormikContext();
+  const [isFocused, setIsFocused] = useState(false);
 
   const handleBlur = () => {
     setTouched({ [props.name]: true });
+    setIsFocused(false);
+
   };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     field.onChange(e);
@@ -43,6 +46,10 @@ const InputField: React.FC<TextInputProps> = ({
           {...props}
           onBlur={handleBlur}
           onChange={handleChange}
+          onFocus={() => setIsFocused(true)}
+          style={{
+            ...(isFocused ? { borderColor: focusStyle } : {}),
+          }}
         />
         <span
           className="absolute right-3 top-3 cursor-pointer"
@@ -70,3 +77,4 @@ const InputField: React.FC<TextInputProps> = ({
 };
 
 export default InputField;
+
