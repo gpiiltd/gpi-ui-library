@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { useField, useFormikContext } from "formik";
 import { TextInputProps, TypographyVariant } from "../types";
 import Typography from "../Typography/Typography";
@@ -16,9 +16,11 @@ const TextAreaField: FC<TextInputProps & { rows?: number }> = ({
 }) => {
   const [field, meta] = useField(props.name);
   const { setTouched, validateField } = useFormikContext();
+  const [isFocused, setIsFocused] = useState(false);
 
   const handleBlur = () => {
     setTouched({ [props.name]: true });
+    setIsFocused(false);
   };
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     field.onChange(e);
@@ -35,15 +37,16 @@ const TextAreaField: FC<TextInputProps & { rows?: number }> = ({
         <textarea
           rows={rows}
           placeholder={placeholder}
-          className={`mt-1 block w-full_width px-3 py-2 border border-primary_color rounded-md shadow-sm focus:outline-none placeholder-primary_color placeholder-opacity-50 placeholder-xs ${
-            meta.touched && meta.error
-              ? "border border-error focus:border-error focus:ring-error"
-              : `focus:border-${focusStyle} focus:ring-${focusStyle}`
-          }`}
+          className={`mt-1 block w-full_width px-3 py-2 border border-primary_color rounded-md shadow-sm focus:outline-none placeholder-primary_color placeholder-opacity-50 placeholder-xs 
+       `}
           {...field}
           {...props}
           onBlur={handleBlur}
           onChange={handleChange}
+          onFocus={() => setIsFocused(true)}
+          style={{
+            ...(isFocused ? { borderColor: focusStyle } : {}),
+          }}
         />
       </div>
       {meta.touched && meta.error ? (
