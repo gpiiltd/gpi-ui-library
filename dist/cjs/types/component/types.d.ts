@@ -60,6 +60,7 @@ export interface BreadcrumbProps {
         route: string;
     }[];
     currentStep: number;
+    activeColor?: string;
 }
 export interface SearchBarProps {
     placeholder?: string;
@@ -71,4 +72,9 @@ export interface FooterProps {
     children: ReactNode;
     bg_color?: string;
     fullWidth?: string;
+    logo?: any;
+}
+export interface HeaderProps {
+    logo: string;
+    children: ReactNode;
 }

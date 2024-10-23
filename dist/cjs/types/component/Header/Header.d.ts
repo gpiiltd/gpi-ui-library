@@ -1,7 +1,4 @@
-import React, { FC } from "react";
-interface HeaderProps {
-    logo?: string;
-    children?: React.ReactNode;
-}
+import { FC } from "react";
+import { HeaderProps } from "../types";
 declare const Header: FC<HeaderProps>;
 export default Header;

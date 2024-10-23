@@ -6470,9 +6470,11 @@ var InputField = function (_a) {
     var label = _a.label, helperText = _a.helperText, placeHolder = _a.placeHolder, icon = _a.icon, type = _a.type, onClick = _a.onClick, focusStyle = _a.focusStyle, props = __rest(_a, ["label", "helperText", "placeHolder", "icon", "type", "onClick", "focusStyle"]);
     var _b = useField(props.name), field = _b[0], meta = _b[1];
     var _c = useFormikContext(), setTouched = _c.setTouched, validateField = _c.validateField;
+    var _d = react.exports.useState(false), isFocused = _d[0], setIsFocused = _d[1];
     var handleBlur = function () {
         var _a;
         setTouched((_a = {}, _a[props.name] = true, _a));
+        setIsFocused(false);
     };
     var handleChange = function (e) {
         var _a;
@@ -6486,7 +6488,7 @@ var InputField = function (_a) {
         React.createElement("div", { className: "relative" },
             React.createElement("input", __assign({ type: type, placeholder: placeHolder, className: "mt-1 block w-full_width px-3 py-2 border border-primary_color rounded-md shadow-sm focus:outline-none placeholder-primary_color placeholder-opacity-50 placeholder-xs ".concat(meta.touched && meta.error
                     ? "border border-error focus:border-error focus:ring-error"
-                    : "focus:border-".concat(focusStyle, " focus:ring-").concat(focusStyle)) }, field, props, { onBlur: handleBlur, onChange: handleChange })),
+                    : "focus:border-".concat(focusStyle, " focus:ring-").concat(focusStyle)) }, field, props, { onBlur: handleBlur, onChange: handleChange, onFocus: function () { return setIsFocused(true); }, style: __assign({}, (isFocused ? { borderColor: focusStyle } : {})) })),
             React.createElement("span", { className: "absolute right-3 top-3 cursor-pointer", onClick: onClick }, icon)),
         meta.touched && meta.error ? (React.createElement(Typography, { variant: TypographyVariant.SMALL, className: "text-error mt-1" }, meta.error)) : (helperText && (React.createElement(Typography, { variant: TypographyVariant.SMALL, className: "mt-1" }, meta.error)))));
 };
@@ -6502,11 +6504,13 @@ var Card = function (_a) {
 };
 
 var Footer = function (_a) {
-    var children = _a.children, bg_color = _a.bg_color;
+    var logo = _a.logo, children = _a.children, bg_color = _a.bg_color;
     return (React.createElement("footer", { className: "bg-".concat(bg_color, " text-white py-4 bottom-0 absolute w-full_width"), style: {
             backgroundColor: bg_color,
         } },
-        React.createElement("div", { className: "container mx-auto px-4 text-center" }, children)));
+        React.createElement("div", { className: " px-4 flex items-center gap-20" },
+            React.createElement("img", { src: logo, alt: " Logo", className: "h-6" }),
+            React.createElement("div", null, children))));
 };
 
 var Header = function (_a) {
@@ -6532,7 +6536,6 @@ var Loader = function (_a) {
             React.createElement("div", { className: "loader-circle" }))));
 };
 
-/* eslint-disable react-hooks/rules-of-hooks */
 var Modal = function (_a) {
     var isOpen = _a.isOpen, onClose = _a.onClose, children = _a.children, closeIcon = _a.closeIcon, width = _a.width;
     if (!isOpen)
@@ -6544,7 +6547,6 @@ var Modal = function (_a) {
         }
     };
     // Close modal on Escape key press
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     var handleKeyDown = function (event) {
         if (event.key === "Escape") {
             onClose();
@@ -6628,9 +6630,11 @@ var TextAreaField = function (_a) {
     var label = _a.label, helperText = _a.helperText, placeholder = _a.placeholder; _a.icon; _a.type; _a.onClick; var focusStyle = _a.focusStyle, _b = _a.rows, rows = _b === void 0 ? 5 : _b, props = __rest(_a, ["label", "helperText", "placeholder", "icon", "type", "onClick", "focusStyle", "rows"]);
     var _c = useField(props.name), field = _c[0], meta = _c[1];
     var _d = useFormikContext(), setTouched = _d.setTouched, validateField = _d.validateField;
+    var _e = react.exports.useState(false), isFocused = _e[0], setIsFocused = _e[1];
     var handleBlur = function () {
         var _a;
         setTouched((_a = {}, _a[props.name] = true, _a));
+        setIsFocused(false);
     };
     var handleChange = function (e) {
         var _a;
@@ -6642,9 +6646,7 @@ var TextAreaField = function (_a) {
         React.createElement("label", { htmlFor: props.name },
             React.createElement(Typography, { variant: TypographyVariant.NORMAL }, label)),
         React.createElement("div", { className: "relative" },
-            React.createElement("textarea", __assign({ rows: rows, placeholder: placeholder, className: "mt-1 block w-full_width px-3 py-2 border border-primary_color rounded-md shadow-sm focus:outline-none placeholder-primary_color placeholder-opacity-50 placeholder-xs ".concat(meta.touched && meta.error
-                    ? "border border-error focus:border-error focus:ring-error"
-                    : "focus:border-".concat(focusStyle, " focus:ring-").concat(focusStyle)) }, field, props, { onBlur: handleBlur, onChange: handleChange }))),
+            React.createElement("textarea", __assign({ rows: rows, placeholder: placeholder, className: "mt-1 block w-full_width px-3 py-2 border border-primary_color rounded-md shadow-sm focus:outline-none placeholder-primary_color placeholder-opacity-50 placeholder-xs \n       " }, field, props, { onBlur: handleBlur, onChange: handleChange, onFocus: function () { return setIsFocused(true); }, style: __assign({}, (isFocused ? { borderColor: focusStyle } : {})) }))),
         meta.touched && meta.error ? (React.createElement(Typography, { variant: TypographyVariant.SMALL, className: "text-error mt-1" }, meta.error)) : (helperText && (React.createElement(Typography, { variant: TypographyVariant.SMALL, className: "mt-1" }, helperText)))));
 };
 
