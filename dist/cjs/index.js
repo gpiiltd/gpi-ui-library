@@ -2929,7 +2929,7 @@ function FadeLoader(_a) {
 
 var Button = function (_a) {
     var text = _a.text, loading = _a.loading, onClick = _a.onClick, active = _a.active, bg_color = _a.bg_color, text_color = _a.text_color, border_color = _a.border_color;
-    return (React.createElement("div", { className: "w-full_width flex items-center justify-center content-cenyter  py-2  rounded-md  font-medium transition duration-300 border-2 border-transparent ".concat(active ? "" : "opacity-30"), style: {
+    return (React.createElement("div", { className: "w-full_width flex items-center justify-center content-cenyter  py-1 px-2 rounded-md  font-medium transition duration-300 border-2 border-transparent ".concat(active ? "" : "opacity-30"), style: {
             backgroundColor: bg_color,
             color: text_color,
             borderWidth: active ? "2" : "0",
@@ -2979,6 +2979,181 @@ function __rest(s, e) {
 typeof SuppressedError === "function" ? SuppressedError : function (error, suppressed, message) {
   var e = new Error(message);
   return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
+};
+
+var TypographyVariant;
+(function (TypographyVariant) {
+    TypographyVariant[TypographyVariant["TITLE"] = 0] = "TITLE";
+    TypographyVariant[TypographyVariant["SUBTITLE"] = 1] = "SUBTITLE";
+    TypographyVariant[TypographyVariant["NORMAL"] = 2] = "NORMAL";
+    TypographyVariant[TypographyVariant["BOLD"] = 3] = "BOLD";
+    TypographyVariant[TypographyVariant["SMALL"] = 4] = "SMALL";
+})(TypographyVariant || (TypographyVariant = {}));
+
+var Typography = function (_a) {
+    var _b;
+    var children = _a.children, variant = _a.variant, className = _a.className;
+    var classes = (_b = {},
+        _b[TypographyVariant.TITLE] = "text-3xl font-bold leading-tight",
+        _b[TypographyVariant.SUBTITLE] = "text-2xl font-semibold leading-relaxed",
+        _b[TypographyVariant.NORMAL] = "text-base font-normal leading-relaxed",
+        _b[TypographyVariant.BOLD] = "text-base font-bold leading-relaxed",
+        _b[TypographyVariant.SMALL] = "text-sm font-normal leading-tight",
+        _b)[variant];
+    return React.createElement("div", { className: "".concat(classes, " ").concat(className) }, children);
+};
+
+var InputField = function (_a) {
+    var label = _a.label, helperText = _a.helperText, placeHolder = _a.placeHolder, icon = _a.icon, type = _a.type, onClick = _a.onClick, focusStyle = _a.focusStyle, props = __rest(_a, ["label", "helperText", "placeHolder", "icon", "type", "onClick", "focusStyle"]);
+    var _b = react.exports.useState(false), isFocused = _b[0], setIsFocused = _b[1];
+    var handleBlur = function () {
+        setIsFocused(false);
+    };
+    var handleChange = function (e) {
+        if (props.onChange) {
+            props.onChange(e);
+        }
+    };
+    return (React.createElement("div", { className: "mb-4" },
+        React.createElement("label", { htmlFor: props.name },
+            React.createElement(Typography, { variant: TypographyVariant.NORMAL }, label)),
+        React.createElement("div", { className: "relative" },
+            React.createElement("input", __assign({ type: type, placeholder: placeHolder, className: "mt-1 block w-full_width px-3 py-2 border border-primary_color rounded-md shadow-sm focus:outline-none placeholder-primary_color placeholder-opacity-50 placeholder-xs ".concat(isFocused ? "focus:border-".concat(focusStyle, " focus:ring-").concat(focusStyle) : ""), onBlur: handleBlur, onChange: handleChange, onFocus: function () { return setIsFocused(true); }, style: __assign({}, (isFocused ? { borderColor: focusStyle } : {})) }, props)),
+            React.createElement("span", { className: "absolute right-3 top-3 cursor-pointer", onClick: onClick }, icon)),
+        helperText && (React.createElement(Typography, { variant: TypographyVariant.SMALL, className: "mt-1" }, helperText))));
+};
+
+var Card = function (_a) {
+    var titleLeft = _a.titleLeft, titleRight = _a.titleRight, children = _a.children, width = _a.width, height = _a.height;
+    return (React.createElement("div", { className: "flex items-start justify-center h-screen mt-12" },
+        React.createElement("div", { className: "bg-white rounded-lg shadow-lg p-20 ", style: { width: width, height: height } },
+            React.createElement("div", { className: "flex justify-between items-center mb-4" },
+                React.createElement("h4", { className: "text-xl font-bold" }, titleLeft),
+                React.createElement("h4", { className: "text-xl font-bold" }, titleRight)),
+            React.createElement("div", { className: "overflow-y-auto h-full" }, children))));
+};
+
+var Footer = function (_a) {
+    var logo = _a.logo, children = _a.children, bg_color = _a.bg_color;
+    return (React.createElement("footer", { className: "bg-".concat(bg_color, " text-white py-4 bottom-0 absolute w-full_width"), style: {
+            backgroundColor: bg_color,
+        } },
+        React.createElement("div", { className: " px-4 flex items-center gap-20" },
+            React.createElement("img", { src: logo, alt: " Logo", className: "h-6" }),
+            React.createElement("div", null, children))));
+};
+
+var Header = function (_a) {
+    var logo = _a.logo, children = _a.children;
+    return (React.createElement("header", { className: "flex justify-between items-center shadow px-12 p-2" },
+        React.createElement("div", { className: "flex items-center" },
+            React.createElement("img", { src: logo, alt: " Logo", className: "h-6" })),
+        children));
+};
+
+var Loader = function (_a) {
+    var isOpen = _a.isOpen, onClose = _a.onClose;
+    if (!isOpen)
+        return null;
+    var handleOutsideClick = function (event) {
+        if (event.target === event.currentTarget) {
+            onClose();
+        }
+    };
+    return (React.createElement("div", { className: "fixed inset-0 flex items-center justify-center bg-gray-400 bg-opacity-50", onClick: handleOutsideClick },
+        React.createElement("div", { className: "loader" },
+            " ",
+            React.createElement("div", { className: "loader-circle" }))));
+};
+
+var Modal = function (_a) {
+    var isOpen = _a.isOpen, onClose = _a.onClose, children = _a.children, closeIcon = _a.closeIcon, width = _a.width;
+    if (!isOpen)
+        return null;
+    // Close modal on outside click
+    var handleOutsideClick = function (event) {
+        if (event.target === event.currentTarget) {
+            onClose();
+        }
+    };
+    // Close modal on Escape key press
+    var handleKeyDown = function (event) {
+        if (event.key === "Escape") {
+            onClose();
+        }
+    };
+    react.exports.useEffect(function () {
+        window.addEventListener("keydown", handleKeyDown);
+        return function () {
+            window.removeEventListener("keydown", handleKeyDown);
+        };
+    }, [handleKeyDown]);
+    return (React.createElement("div", { className: "fixed inset-0 flex items-center justify-center bg-black bg-opacity-50", onClick: handleOutsideClick },
+        React.createElement("div", { className: "bg-white rounded-lg shadow-lg p-6 relative", style: {
+                width: width,
+            } },
+            React.createElement("button", { onClick: onClose, className: "absolute top-2 right-2  text-gray-600 hover:text-gray-900" }, closeIcon && React.createElement("img", { src: closeIcon, alt: "Close", className: "h-6 w-6" })),
+            children)));
+};
+
+var highlightDescription = function (description, highlightText) {
+    if (highlightText === void 0) { highlightText = []; }
+    if (highlightText.length === 0)
+        return description;
+    var escapedHighlightText = highlightText.map(function (text) {
+        return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    });
+    var regex = new RegExp("\\b(".concat(escapedHighlightText.join("|"), ")\\b"), "gi");
+    var parts = description.split(regex);
+    return (React.createElement(React.Fragment, null, parts.map(function (part, index) {
+        return highlightText.some(function (text) { return text.toLowerCase() === part.toLowerCase(); }) ? (React.createElement("span", { key: index, className: "bg-orange-100 px-1 rounded cursor-pointer " }, part)) : (part);
+    })));
+};
+var TableComponent = function (_a) {
+    var rows = _a.rows;
+    return (React.createElement("div", { className: "overflow-x-auto" },
+        React.createElement(Typography, { variant: TypographyVariant.SUBTITLE, className: "mb-2" }, "Props description"),
+        React.createElement("table", { className: "min-w-full table-auto border-collapse border border-gray-200" },
+            React.createElement("thead", { className: "bg-gray-100" },
+                React.createElement("tr", null,
+                    React.createElement("th", { className: "px-4 py-2 text-left border border-gray-200" }, "Name"),
+                    React.createElement("th", { className: "px-4 py-2 text-left border border-gray-200" }, "Description"))),
+            React.createElement("tbody", null, rows.map(function (row, index) { return (React.createElement("tr", { key: index, className: "odd:bg-white even:bg-gray-50" },
+                React.createElement("td", { className: "px-4 py-2 border border-gray-200" }, row.name),
+                React.createElement("td", { className: "px-4 py-2 border border-gray-200" }, highlightDescription(row.description, row.highlightText)))); })))));
+};
+
+var SearchBar = function (_a) {
+    var _b = _a.placeholder, placeholder = _b === void 0 ? "Search..." : _b, onChange = _a.onChange, onSubmit = _a.onSubmit, _c = _a.suggestions, suggestions = _c === void 0 ? [] : _c;
+    var _d = react.exports.useState(""), searchTerm = _d[0], setSearchTerm = _d[1];
+    var _e = react.exports.useState(false), isFocused = _e[0], setIsFocused = _e[1];
+    var _f = react.exports.useState(placeholder), selectedPlaceholder = _f[0], setSelectedPlaceholder = _f[1];
+    var handleInputChange = function (event) {
+        setSearchTerm(event.target.value);
+        setIsFocused(true);
+        if (onChange)
+            onChange(event.target.value);
+    };
+    var handleSubmit = function (event) {
+        event.preventDefault();
+        if (onSubmit)
+            onSubmit(searchTerm);
+    };
+    var handleSuggestionClick = function (suggestion) {
+        setSelectedPlaceholder(suggestion);
+        setSearchTerm(suggestion);
+        setIsFocused(false);
+    };
+    var filteredSuggestions = suggestions.filter(function (suggestion) {
+        return suggestion.toLowerCase().includes(searchTerm.toLowerCase());
+    });
+    return (React.createElement("div", { className: "relative" },
+        React.createElement("form", { onSubmit: handleSubmit, className: "flex items-center" },
+            React.createElement("input", { type: "text", value: searchTerm, onChange: handleInputChange, placeholder: selectedPlaceholder, className: "py-2 pl-10 text-sm text-primary_color rounded-lg border border-primary_color focus:outline-none focus:ring-1 focus:ring-primary_color w-full", onFocus: function () { return setIsFocused(true); } }),
+            React.createElement("button", { type: "submit", className: "absolute ml-2 text-gray-600 hover:text-gray-900" },
+                React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", className: "h-6 w-6", fill: "none", viewBox: "0 0 24 24", stroke: "lightgray" },
+                    React.createElement("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: "2", d: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" })))),
+        isFocused && filteredSuggestions.length > 0 && (React.createElement("ul", { className: "absolute bg-white shadow-md w-full rounded-lg py-2 mt-2" }, filteredSuggestions.map(function (suggestion, index) { return (React.createElement("li", { key: index, className: "px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer", onMouseDown: function () { return handleSuggestionClick(suggestion); } }, suggestion)); })))));
 };
 
 /** Detect free variable `global` from Node.js. */
@@ -6444,193 +6619,15 @@ FieldArrayInner.defaultProps = {
   validateOnChange: true
 };
 
-var TypographyVariant;
-(function (TypographyVariant) {
-    TypographyVariant[TypographyVariant["TITLE"] = 0] = "TITLE";
-    TypographyVariant[TypographyVariant["SUBTITLE"] = 1] = "SUBTITLE";
-    TypographyVariant[TypographyVariant["NORMAL"] = 2] = "NORMAL";
-    TypographyVariant[TypographyVariant["BOLD"] = 3] = "BOLD";
-    TypographyVariant[TypographyVariant["SMALL"] = 4] = "SMALL";
-})(TypographyVariant || (TypographyVariant = {}));
-
-var Typography = function (_a) {
-    var _b;
-    var children = _a.children, variant = _a.variant, className = _a.className;
-    var classes = (_b = {},
-        _b[TypographyVariant.TITLE] = "text-3xl font-bold leading-tight",
-        _b[TypographyVariant.SUBTITLE] = "text-2xl font-semibold leading-relaxed",
-        _b[TypographyVariant.NORMAL] = "text-base font-normal leading-relaxed",
-        _b[TypographyVariant.BOLD] = "text-base font-bold leading-relaxed",
-        _b[TypographyVariant.SMALL] = "text-sm font-normal leading-tight",
-        _b)[variant];
-    return React.createElement("div", { className: "".concat(classes, " ").concat(className) }, children);
-};
-
-var InputField = function (_a) {
-    var label = _a.label, helperText = _a.helperText, placeHolder = _a.placeHolder, icon = _a.icon, type = _a.type, onClick = _a.onClick, focusStyle = _a.focusStyle, props = __rest(_a, ["label", "helperText", "placeHolder", "icon", "type", "onClick", "focusStyle"]);
-    var _b = useField(props.name), field = _b[0], meta = _b[1];
-    var _c = useFormikContext(), setTouched = _c.setTouched, validateField = _c.validateField;
-    var handleBlur = function () {
-        var _a;
-        setTouched((_a = {}, _a[props.name] = true, _a));
-    };
-    var handleChange = function (e) {
-        var _a;
-        field.onChange(e);
-        setTouched((_a = {}, _a[props.name] = true, _a));
-        validateField(props.name);
-    };
-    return (React.createElement("div", { className: "mb-4" },
-        React.createElement("label", { htmlFor: props.name },
-            React.createElement(Typography, { variant: TypographyVariant.NORMAL }, label)),
-        React.createElement("div", { className: "relative" },
-            React.createElement("input", __assign({ type: type, placeholder: placeHolder, className: "mt-1 block w-full_width px-3 py-2 border border-primary_color rounded-md shadow-sm focus:outline-none placeholder-primary_color placeholder-opacity-50 placeholder-xs ".concat(meta.touched && meta.error
-                    ? "border border-error focus:border-error focus:ring-error"
-                    : "focus:border-".concat(focusStyle, " focus:ring-").concat(focusStyle)) }, field, props, { onBlur: handleBlur, onChange: handleChange })),
-            React.createElement("span", { className: "absolute right-3 top-3 cursor-pointer", onClick: onClick }, icon)),
-        meta.touched && meta.error ? (React.createElement(Typography, { variant: TypographyVariant.SMALL, className: "text-error mt-1" }, meta.error)) : (helperText && (React.createElement(Typography, { variant: TypographyVariant.SMALL, className: "mt-1" }, meta.error)))));
-};
-
-var Card = function (_a) {
-    var titleLeft = _a.titleLeft, titleRight = _a.titleRight, children = _a.children, width = _a.width, height = _a.height;
-    return (React.createElement("div", { className: "flex items-start justify-center h-screen mt-12" },
-        React.createElement("div", { className: "bg-white rounded-lg shadow-lg p-20 ", style: { width: width, height: height } },
-            React.createElement("div", { className: "flex justify-between items-center mb-4" },
-                React.createElement("h4", { className: "text-xl font-bold" }, titleLeft),
-                React.createElement("h4", { className: "text-xl font-bold" }, titleRight)),
-            React.createElement("div", { className: "overflow-y-auto h-full" }, children))));
-};
-
-var Footer = function (_a) {
-    var children = _a.children, bg_color = _a.bg_color;
-    return (React.createElement("footer", { className: "bg-".concat(bg_color, " text-white py-4 bottom-0 absolute w-full_width"), style: {
-            backgroundColor: bg_color,
-        } },
-        React.createElement("div", { className: "container mx-auto px-4 text-center" }, children)));
-};
-
-var Header = function (_a) {
-    var logo = _a.logo, children = _a.children;
-    return (React.createElement("header", { className: "flex justify-between items-center shadow px-12 p-2" },
-        React.createElement("div", { className: "flex items-center" },
-            React.createElement("img", { src: logo, alt: " Logo", className: "h-6" })),
-        children));
-};
-
-var Loader = function (_a) {
-    var isOpen = _a.isOpen, onClose = _a.onClose;
-    if (!isOpen)
-        return null;
-    var handleOutsideClick = function (event) {
-        if (event.target === event.currentTarget) {
-            onClose();
-        }
-    };
-    return (React.createElement("div", { className: "fixed inset-0 flex items-center justify-center bg-gray-400 bg-opacity-50", onClick: handleOutsideClick },
-        React.createElement("div", { className: "loader" },
-            " ",
-            React.createElement("div", { className: "loader-circle" }))));
-};
-
-/* eslint-disable react-hooks/rules-of-hooks */
-var Modal = function (_a) {
-    var isOpen = _a.isOpen, onClose = _a.onClose, children = _a.children, closeIcon = _a.closeIcon, width = _a.width;
-    if (!isOpen)
-        return null;
-    // Close modal on outside click
-    var handleOutsideClick = function (event) {
-        if (event.target === event.currentTarget) {
-            onClose();
-        }
-    };
-    // Close modal on Escape key press
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    var handleKeyDown = function (event) {
-        if (event.key === "Escape") {
-            onClose();
-        }
-    };
-    react.exports.useEffect(function () {
-        window.addEventListener("keydown", handleKeyDown);
-        return function () {
-            window.removeEventListener("keydown", handleKeyDown);
-        };
-    }, [handleKeyDown]);
-    return (React.createElement("div", { className: "fixed inset-0 flex items-center justify-center bg-black bg-opacity-50", onClick: handleOutsideClick },
-        React.createElement("div", { className: "bg-white rounded-lg shadow-lg p-6 relative", style: {
-                width: width,
-            } },
-            React.createElement("button", { onClick: onClose, className: "absolute top-2 right-2  text-gray-600 hover:text-gray-900" }, closeIcon && React.createElement("img", { src: closeIcon, alt: "Close", className: "h-6 w-6" })),
-            children)));
-};
-
-var highlightDescription = function (description, highlightText) {
-    if (highlightText === void 0) { highlightText = []; }
-    if (highlightText.length === 0)
-        return description;
-    var escapedHighlightText = highlightText.map(function (text) {
-        return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-    });
-    var regex = new RegExp("\\b(".concat(escapedHighlightText.join("|"), ")\\b"), "gi");
-    var parts = description.split(regex);
-    return (React.createElement(React.Fragment, null, parts.map(function (part, index) {
-        return highlightText.some(function (text) { return text.toLowerCase() === part.toLowerCase(); }) ? (React.createElement("span", { key: index, className: "bg-orange-100 px-1 rounded cursor-pointer " }, part)) : (part);
-    })));
-};
-var TableComponent = function (_a) {
-    var rows = _a.rows;
-    return (React.createElement("div", { className: "overflow-x-auto" },
-        React.createElement(Typography, { variant: TypographyVariant.SUBTITLE, className: "mb-2" }, "Props description"),
-        React.createElement("table", { className: "min-w-full table-auto border-collapse border border-gray-200" },
-            React.createElement("thead", { className: "bg-gray-100" },
-                React.createElement("tr", null,
-                    React.createElement("th", { className: "px-4 py-2 text-left border border-gray-200" }, "Name"),
-                    React.createElement("th", { className: "px-4 py-2 text-left border border-gray-200" }, "Description"))),
-            React.createElement("tbody", null, rows.map(function (row, index) { return (React.createElement("tr", { key: index, className: "odd:bg-white even:bg-gray-50" },
-                React.createElement("td", { className: "px-4 py-2 border border-gray-200" }, row.name),
-                React.createElement("td", { className: "px-4 py-2 border border-gray-200" }, highlightDescription(row.description, row.highlightText)))); })))));
-};
-
-var SearchBar = function (_a) {
-    var _b = _a.placeholder, placeholder = _b === void 0 ? "Search..." : _b, onChange = _a.onChange, onSubmit = _a.onSubmit, _c = _a.suggestions, suggestions = _c === void 0 ? [] : _c;
-    var _d = react.exports.useState(""), searchTerm = _d[0], setSearchTerm = _d[1];
-    var _e = react.exports.useState(false), isFocused = _e[0], setIsFocused = _e[1];
-    var _f = react.exports.useState(placeholder), selectedPlaceholder = _f[0], setSelectedPlaceholder = _f[1];
-    var handleInputChange = function (event) {
-        setSearchTerm(event.target.value);
-        setIsFocused(true);
-        if (onChange)
-            onChange(event.target.value);
-    };
-    var handleSubmit = function (event) {
-        event.preventDefault();
-        if (onSubmit)
-            onSubmit(searchTerm);
-    };
-    var handleSuggestionClick = function (suggestion) {
-        setSelectedPlaceholder(suggestion);
-        setSearchTerm(suggestion);
-        setIsFocused(false);
-    };
-    var filteredSuggestions = suggestions.filter(function (suggestion) {
-        return suggestion.toLowerCase().includes(searchTerm.toLowerCase());
-    });
-    return (React.createElement("div", { className: "relative" },
-        React.createElement("form", { onSubmit: handleSubmit, className: "flex items-center" },
-            React.createElement("input", { type: "text", value: searchTerm, onChange: handleInputChange, placeholder: selectedPlaceholder, className: "py-2 pl-10 text-sm text-primary_color rounded-lg border border-primary_color focus:outline-none focus:ring-1 focus:ring-primary_color w-full", onFocus: function () { return setIsFocused(true); } }),
-            React.createElement("button", { type: "submit", className: "absolute ml-2 text-gray-600 hover:text-gray-900" },
-                React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", className: "h-6 w-6", fill: "none", viewBox: "0 0 24 24", stroke: "lightgray" },
-                    React.createElement("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: "2", d: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" })))),
-        isFocused && filteredSuggestions.length > 0 && (React.createElement("ul", { className: "absolute bg-white shadow-md w-full rounded-lg py-2 mt-2" }, filteredSuggestions.map(function (suggestion, index) { return (React.createElement("li", { key: index, className: "px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer", onMouseDown: function () { return handleSuggestionClick(suggestion); } }, suggestion)); })))));
-};
-
 var TextAreaField = function (_a) {
     var label = _a.label, helperText = _a.helperText, placeholder = _a.placeholder; _a.icon; _a.type; _a.onClick; var focusStyle = _a.focusStyle, _b = _a.rows, rows = _b === void 0 ? 5 : _b, props = __rest(_a, ["label", "helperText", "placeholder", "icon", "type", "onClick", "focusStyle", "rows"]);
     var _c = useField(props.name), field = _c[0], meta = _c[1];
     var _d = useFormikContext(), setTouched = _d.setTouched, validateField = _d.validateField;
+    var _e = react.exports.useState(false), isFocused = _e[0], setIsFocused = _e[1];
     var handleBlur = function () {
         var _a;
         setTouched((_a = {}, _a[props.name] = true, _a));
+        setIsFocused(false);
     };
     var handleChange = function (e) {
         var _a;
@@ -6642,9 +6639,7 @@ var TextAreaField = function (_a) {
         React.createElement("label", { htmlFor: props.name },
             React.createElement(Typography, { variant: TypographyVariant.NORMAL }, label)),
         React.createElement("div", { className: "relative" },
-            React.createElement("textarea", __assign({ rows: rows, placeholder: placeholder, className: "mt-1 block w-full_width px-3 py-2 border border-primary_color rounded-md shadow-sm focus:outline-none placeholder-primary_color placeholder-opacity-50 placeholder-xs ".concat(meta.touched && meta.error
-                    ? "border border-error focus:border-error focus:ring-error"
-                    : "focus:border-".concat(focusStyle, " focus:ring-").concat(focusStyle)) }, field, props, { onBlur: handleBlur, onChange: handleChange }))),
+            React.createElement("textarea", __assign({ rows: rows, placeholder: placeholder, className: "mt-1 block w-full_width px-3 py-2 border border-primary_color rounded-md shadow-sm focus:outline-none placeholder-primary_color placeholder-opacity-50 placeholder-xs \n       " }, field, props, { onBlur: handleBlur, onChange: handleChange, onFocus: function () { return setIsFocused(true); }, style: __assign({}, (isFocused ? { borderColor: focusStyle } : {})) }))),
         meta.touched && meta.error ? (React.createElement(Typography, { variant: TypographyVariant.SMALL, className: "text-error mt-1" }, meta.error)) : (helperText && (React.createElement(Typography, { variant: TypographyVariant.SMALL, className: "mt-1" }, helperText)))));
 };
 

@@ -18,6 +18,7 @@ export interface TextInputProps {
     icon?: ReactNode;
     onClick?: () => void;
     focusStyle?: string;
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 export declare enum TypographyVariant {
     TITLE = 0,
@@ -60,6 +61,7 @@ export interface BreadcrumbProps {
         route: string;
     }[];
     currentStep: number;
+    activeColor?: string;
 }
 export interface SearchBarProps {
     placeholder?: string;
@@ -71,4 +73,9 @@ export interface FooterProps {
     children: ReactNode;
     bg_color?: string;
     fullWidth?: string;
+    logo?: any;
+}
+export interface HeaderProps {
+    logo: string;
+    children: ReactNode;
 }

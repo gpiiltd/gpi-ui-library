@@ -13,7 +13,7 @@ const Button: FC<ButtonProps> = ({
 }) => {
   return (
     <div
-      className={`w-full_width flex items-center justify-center content-cenyter  py-2  rounded-md  font-medium transition duration-300 border-2 border-transparent ${
+      className={`w-full_width flex items-center justify-center content-cenyter  py-1 px-2 rounded-md  font-medium transition duration-300 border-2 border-transparent ${
         active ? "" : "opacity-30"
       }`}
       style={{

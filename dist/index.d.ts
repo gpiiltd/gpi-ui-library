@@ -19,6 +19,7 @@ interface TextInputProps {
     icon?: ReactNode;
     onClick?: () => void;
     focusStyle?: string;
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 declare enum TypographyVariant {
     TITLE = 0,
@@ -65,6 +66,11 @@ interface FooterProps {
     children: ReactNode;
     bg_color?: string;
     fullWidth?: string;
+    logo?: any;
+}
+interface HeaderProps {
+    logo: string;
+    children: ReactNode;
 }
 
 declare const Button: FC<ButtonProps>;
@@ -75,10 +81,6 @@ declare const Card: FC<CardProps>;
 
 declare const Footer: React$1.FC<FooterProps>;
 
-interface HeaderProps {
-    logo?: string;
-    children?: React$1.ReactNode;
-}
 declare const Header: FC<HeaderProps>;
 
 declare const Loader: FC<LoaderProps>;
