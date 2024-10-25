@@ -13,22 +13,40 @@ const Button: FC<ButtonProps> = ({
 }) => {
   return (
     <div
-      className={`w-full_width flex items-center justify-center content-cenyter  py-1 px-2 rounded-md  font-medium transition duration-300 border-2 border-transparent ${
-        active ? "" : "opacity-30"
-      }`}
-      style={{
-        backgroundColor: bg_color,
-        color: text_color,
-        borderWidth: active ? "2" : "0",
-        borderColor: active ? border_color : "transparent",
-      }}
+    style={{
+      width: '100%',
+      display: 'flex',
+      cursor: 'pointer',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontSize: '1rem', 
+      padding: '0.5rem 0.75rem', 
+      borderRadius: '0.380rem', 
+      fontWeight: '500', 
+      transition: 'all 0.3s', 
+      backgroundColor: bg_color,
+      color: text_color,
+      opacity: active ? 1 : 0.3,
+      borderWidth: active ? 2 : 0,
+      borderColor: active ? border_color : 'transparent',
+      borderStyle: 'solid', 
+    }}
     >
       <button
         onClick={onClick}
         disabled={loading || !active}
-        className={`w-full_width h-button_height border-none flex justify-center items-center font-bold ${
-          loading ? "pt-5" : "pt-0"
-        }`}
+        style={{
+          width: '100%',
+          height: 'var(--button-height)', 
+          padding: loading ? '1.25rem 0.75rem 0.5rem 0.75rem' : '0.5rem 0.75rem', 
+          border: 'none',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          fontSize: '1rem',
+          letterSpacing: '0.05em', 
+          fontWeight: 'bold',
+        }}
       >
         {loading ? (
           <FadeLoader color="#B8C1CB" radius={2} height={6} margin={-5} />

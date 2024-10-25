@@ -42,6 +42,8 @@ export const Primary: Story = {
 export const Secondary: Story = {
   args: {
     text: "GPI Button",
-    active: false,
+    active: true,
+    bg_color: "#284ed3",
+    loading: false
   },
 };

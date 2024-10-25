@@ -19,6 +19,7 @@ export interface TextInputProps {
     onClick?: () => void;
     focusStyle?: string;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    value?: string;
 }
 export declare enum TypographyVariant {
     TITLE = 0,

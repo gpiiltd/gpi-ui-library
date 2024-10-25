@@ -18,6 +18,8 @@ DefaultInput.args = {
   type: "text",
   focusStyle: "blue",
   helperText: "This is a required field.",
+  value: "", 
+
 };
 
 export const PasswordInput = Template.bind({});
@@ -29,4 +31,5 @@ PasswordInput.args = {
   helperText: "Ensure your password is strong.",
   icon: <FiEye />,
   onClick: () => alert("Show/Hide password"),
+  value: "",
 };

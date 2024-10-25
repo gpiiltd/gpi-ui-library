@@ -10,6 +10,8 @@ const InputField: React.FC<TextInputProps> = ({
   type,
   onClick,
   focusStyle,
+  value,
+
   ...props
 }) => {
   const [isFocused, setIsFocused] = useState(false);
@@ -33,6 +35,7 @@ const InputField: React.FC<TextInputProps> = ({
         <input
           type={type}
           placeholder={placeHolder}
+          value={value} 
           className={`mt-1 block w-full_width px-3 py-2 border border-primary_color rounded-md shadow-sm focus:outline-none placeholder-primary_color placeholder-opacity-50 placeholder-xs ${
             isFocused ? `focus:border-${focusStyle} focus:ring-${focusStyle}` : ""
           }`}

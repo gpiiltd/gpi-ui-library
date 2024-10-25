@@ -2929,13 +2929,13 @@ function FadeLoader(_a) {
 
 var Button = function (_a) {
     var text = _a.text, loading = _a.loading, onClick = _a.onClick, active = _a.active, bg_color = _a.bg_color, text_color = _a.text_color, border_color = _a.border_color;
-    return (React.createElement("div", { className: "w-full_width flex items-center justify-center content-cenyter  py-1 px-2 rounded-md  font-medium transition duration-300 border-2 border-transparent ".concat(active ? "" : "opacity-30"), style: {
+    return (React.createElement("div", { className: "w-full_width flex cursor-pointer items-center justify-center text-base items-center py-2 px-3 rounded-md  font-medium transition duration-300 border-2 border-transparent ".concat(active ? "" : "opacity-30"), style: {
             backgroundColor: bg_color,
             color: text_color,
             borderWidth: active ? "2" : "0",
             borderColor: active ? border_color : "transparent",
         } },
-        React.createElement("button", { onClick: onClick, disabled: loading || !active, className: "w-full_width h-button_height border-none flex justify-center items-center font-bold ".concat(loading ? "pt-5" : "pt-0") }, loading ? (React.createElement(FadeLoader, { color: "#B8C1CB", radius: 2, height: 6, margin: -5 })) : (React.createElement("span", null, text)))));
+        React.createElement("button", { onClick: onClick, disabled: loading || !active, className: "w-full_width h-button_height py-2 px-3 border-none flex justify-center items-center text-base tracking-wide font-bold ".concat(loading ? "pt-5" : "pt-2") }, loading ? (React.createElement(FadeLoader, { color: "#B8C1CB", radius: 2, height: 6, margin: -5 })) : (React.createElement("span", null, text)))));
 };
 
 /******************************************************************************
@@ -3004,7 +3004,7 @@ var Typography = function (_a) {
 };
 
 var InputField = function (_a) {
-    var label = _a.label, helperText = _a.helperText, placeHolder = _a.placeHolder, icon = _a.icon, type = _a.type, onClick = _a.onClick, focusStyle = _a.focusStyle, props = __rest(_a, ["label", "helperText", "placeHolder", "icon", "type", "onClick", "focusStyle"]);
+    var label = _a.label, helperText = _a.helperText, placeHolder = _a.placeHolder, icon = _a.icon, type = _a.type, onClick = _a.onClick, focusStyle = _a.focusStyle, value = _a.value, props = __rest(_a, ["label", "helperText", "placeHolder", "icon", "type", "onClick", "focusStyle", "value"]);
     var _b = react.exports.useState(false), isFocused = _b[0], setIsFocused = _b[1];
     var handleBlur = function () {
         setIsFocused(false);
@@ -3018,7 +3018,7 @@ var InputField = function (_a) {
         React.createElement("label", { htmlFor: props.name },
             React.createElement(Typography, { variant: TypographyVariant.NORMAL }, label)),
         React.createElement("div", { className: "relative" },
-            React.createElement("input", __assign({ type: type, placeholder: placeHolder, className: "mt-1 block w-full_width px-3 py-2 border border-primary_color rounded-md shadow-sm focus:outline-none placeholder-primary_color placeholder-opacity-50 placeholder-xs ".concat(isFocused ? "focus:border-".concat(focusStyle, " focus:ring-").concat(focusStyle) : ""), onBlur: handleBlur, onChange: handleChange, onFocus: function () { return setIsFocused(true); }, style: __assign({}, (isFocused ? { borderColor: focusStyle } : {})) }, props)),
+            React.createElement("input", __assign({ type: type, placeholder: placeHolder, value: value, className: "mt-1 block w-full_width px-3 py-2 border border-primary_color rounded-md shadow-sm focus:outline-none placeholder-primary_color placeholder-opacity-50 placeholder-xs ".concat(isFocused ? "focus:border-".concat(focusStyle, " focus:ring-").concat(focusStyle) : ""), onBlur: handleBlur, onChange: handleChange, onFocus: function () { return setIsFocused(true); }, style: __assign({}, (isFocused ? { borderColor: focusStyle } : {})) }, props)),
             React.createElement("span", { className: "absolute right-3 top-3 cursor-pointer", onClick: onClick }, icon)),
         helperText && (React.createElement(Typography, { variant: TypographyVariant.SMALL, className: "mt-1" }, helperText))));
 };
