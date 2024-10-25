@@ -2925,13 +2925,36 @@ function FadeLoader(_a) {
 
 var Button = function (_a) {
     var text = _a.text, loading = _a.loading, onClick = _a.onClick, active = _a.active, bg_color = _a.bg_color, text_color = _a.text_color, border_color = _a.border_color;
-    return (React.createElement("div", { className: "w-full_width flex cursor-pointer items-center justify-center text-base items-center py-2 px-3 rounded-md  font-medium transition duration-300 border-2 border-transparent ".concat(active ? "" : "opacity-30"), style: {
+    return (React.createElement("div", { style: {
+            width: '100%',
+            display: 'flex',
+            cursor: 'pointer',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '1rem',
+            padding: '0.5rem 0.75rem',
+            borderRadius: '0.380rem',
+            fontWeight: '500',
+            transition: 'all 0.3s',
             backgroundColor: bg_color,
             color: text_color,
-            borderWidth: active ? "2" : "0",
-            borderColor: active ? border_color : "transparent",
+            opacity: active ? 1 : 0.3,
+            borderWidth: active ? 2 : 0,
+            borderColor: active ? border_color : 'transparent',
+            borderStyle: 'solid',
         } },
-        React.createElement("button", { onClick: onClick, disabled: loading || !active, className: "w-full_width h-button_height py-2 px-3 border-none flex justify-center items-center text-base tracking-wide font-bold ".concat(loading ? "pt-5" : "pt-2") }, loading ? (React.createElement(FadeLoader, { color: "#B8C1CB", radius: 2, height: 6, margin: -5 })) : (React.createElement("span", null, text)))));
+        React.createElement("button", { onClick: onClick, disabled: loading || !active, style: {
+                width: '100%',
+                height: 'var(--button-height)',
+                padding: loading ? '1.25rem 0.75rem 0.5rem 0.75rem' : '0.5rem 0.75rem',
+                border: 'none',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                fontSize: '1rem',
+                letterSpacing: '0.05em',
+                fontWeight: 'bold',
+            } }, loading ? (React.createElement(FadeLoader, { color: "#B8C1CB", radius: 2, height: 6, margin: -5 })) : (React.createElement("span", null, text)))));
 };
 
 /******************************************************************************
