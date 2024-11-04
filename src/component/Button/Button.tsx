@@ -1,6 +1,7 @@
 import React, { FC } from "react";
+import { ClipLoader} from "react-spinners";
 import { ButtonProps } from "../types";
-import { FadeLoader } from "react-spinners";
+
 
 const Button: FC<ButtonProps> = ({
   text,
@@ -13,43 +14,48 @@ const Button: FC<ButtonProps> = ({
 }) => {
   return (
     <div
-    style={{
-      width: '100%',
-      display: 'flex',
-      cursor: 'pointer',
-      alignItems: 'center',
-      justifyContent: 'center',
-      fontSize: '1rem', 
-      padding: '0.5rem 0.75rem', 
-      borderRadius: '0.380rem', 
-      fontWeight: '500', 
-      transition: 'all 0.3s', 
-      backgroundColor: bg_color,
-      color: text_color,
-      opacity: active ? 1 : 0.3,
-      borderWidth: active ? 2 : 0,
-      borderColor: active ? border_color : 'transparent',
-      borderStyle: 'solid', 
-    }}
+      style={{
+        width: "100%",
+        display: "flex",
+        cursor: active ? "pointer" : "default",
+        alignItems: "center",
+        justifyContent: "center",
+        alignContent:'center',
+        fontSize: "1rem",
+        borderRadius: "0.380rem",
+        fontWeight: "500",
+        transition: "all 0.3s",
+        backgroundColor: bg_color,
+        color: text_color,
+        opacity: active ? 1 : 0.3,
+        borderWidth: active ? 2 : 0,
+        borderColor: active ? border_color : "transparent",
+        borderStyle: "solid",
+      }}
     >
       <button
         onClick={onClick}
         disabled={loading || !active}
         style={{
-          width: '100%',
-          height: 'var(--button-height)', 
-          padding: loading ? '1.25rem 0.75rem 0.5rem 0.75rem' : '0.5rem 0.75rem', 
-          border: 'none',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          fontSize: '1rem',
-          letterSpacing: '0.05em', 
-          fontWeight: 'bold',
+          width: "100%",
+          height: "3.7rem", 
+          border: "none",
+          display: "flex",
+          
+          justifyContent: "center", 
+          alignItems: "center",
+          alignContent:'center', 
+          fontSize: "1rem",
+          letterSpacing: "0.05em",
+          fontWeight: "bold",
+          backgroundColor: "transparent", 
         }}
       >
         {loading ? (
-          <FadeLoader color="#B8C1CB" radius={2} height={6} margin={-5} />
+       
+            <ClipLoader 
+              color="#B8C1CB"
+            />
         ) : (
           <span>{text}</span>
         )}

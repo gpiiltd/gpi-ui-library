@@ -2881,80 +2881,49 @@ var __rest$1 = (undefined && undefined.__rest) || function (s, e) {
         }
     return t;
 };
-var fade = createAnimation("FadeLoader", "50% {opacity: 0.3} 100% {opacity: 1}", "fade");
-function FadeLoader(_a) {
-    var _b = _a.loading, loading = _b === void 0 ? true : _b, _c = _a.color, color = _c === void 0 ? "#000000" : _c, _d = _a.speedMultiplier, speedMultiplier = _d === void 0 ? 1 : _d, _e = _a.cssOverride, cssOverride = _e === void 0 ? {} : _e, _f = _a.height, height = _f === void 0 ? 15 : _f, _g = _a.width, width = _g === void 0 ? 5 : _g, _h = _a.radius, radius = _h === void 0 ? 2 : _h, _j = _a.margin, margin = _j === void 0 ? 2 : _j, additionalprops = __rest$1(_a, ["loading", "color", "speedMultiplier", "cssOverride", "height", "width", "radius", "margin"]);
-    var value = parseLengthAndUnit(margin).value;
-    var radiusValue = value + 18;
-    var quarter = radiusValue / 2 + radiusValue / 5.5;
-    var wrapper = __assign$1({ display: "inherit", position: "relative", fontSize: "0", top: radiusValue, left: radiusValue, width: "".concat(radiusValue * 3, "px"), height: "".concat(radiusValue * 3, "px") }, cssOverride);
-    var style = function (i) {
-        return {
-            position: "absolute",
-            width: cssValue(width),
-            height: cssValue(height),
-            margin: cssValue(margin),
-            backgroundColor: color,
-            borderRadius: cssValue(radius),
-            transition: "2s",
-            animationFillMode: "both",
-            animation: "".concat(fade, " ").concat(1.2 / speedMultiplier, "s ").concat(i * 0.12, "s infinite ease-in-out"),
-        };
-    };
-    var a = __assign$1(__assign$1({}, style(1)), { top: "".concat(radiusValue, "px"), left: "0" });
-    var b = __assign$1(__assign$1({}, style(2)), { top: "".concat(quarter, "px"), left: "".concat(quarter, "px"), transform: "rotate(-45deg)" });
-    var c = __assign$1(__assign$1({}, style(3)), { top: "0", left: "".concat(radiusValue, "px"), transform: "rotate(90deg)" });
-    var d = __assign$1(__assign$1({}, style(4)), { top: "".concat(-1 * quarter, "px"), left: "".concat(quarter, "px"), transform: "rotate(45deg)" });
-    var e = __assign$1(__assign$1({}, style(5)), { top: "".concat(-1 * radiusValue, "px"), left: "0" });
-    var f = __assign$1(__assign$1({}, style(6)), { top: "".concat(-1 * quarter, "px"), left: "".concat(-1 * quarter, "px"), transform: "rotate(-45deg)" });
-    var g = __assign$1(__assign$1({}, style(7)), { top: "0", left: "".concat(-1 * radiusValue, "px"), transform: "rotate(90deg)" });
-    var h = __assign$1(__assign$1({}, style(8)), { top: "".concat(quarter, "px"), left: "".concat(-1 * quarter, "px"), transform: "rotate(45deg)" });
+var clip = createAnimation("ClipLoader", "0% {transform: rotate(0deg) scale(1)} 50% {transform: rotate(180deg) scale(0.8)} 100% {transform: rotate(360deg) scale(1)}", "clip");
+function ClipLoader(_a) {
+    var _b = _a.loading, loading = _b === void 0 ? true : _b, _c = _a.color, color = _c === void 0 ? "#000000" : _c, _d = _a.speedMultiplier, speedMultiplier = _d === void 0 ? 1 : _d, _e = _a.cssOverride, cssOverride = _e === void 0 ? {} : _e, _f = _a.size, size = _f === void 0 ? 35 : _f, additionalprops = __rest$1(_a, ["loading", "color", "speedMultiplier", "cssOverride", "size"]);
+    var style = __assign$1({ background: "transparent !important", width: cssValue(size), height: cssValue(size), borderRadius: "100%", border: "2px solid", borderTopColor: color, borderBottomColor: "transparent", borderLeftColor: color, borderRightColor: color, display: "inline-block", animation: "".concat(clip, " ").concat(0.75 / speedMultiplier, "s 0s infinite linear"), animationFillMode: "both" }, cssOverride);
     if (!loading) {
         return null;
     }
-    return (react.exports.createElement("span", __assign$1({ style: wrapper }, additionalprops),
-        react.exports.createElement("span", { style: a }),
-        react.exports.createElement("span", { style: b }),
-        react.exports.createElement("span", { style: c }),
-        react.exports.createElement("span", { style: d }),
-        react.exports.createElement("span", { style: e }),
-        react.exports.createElement("span", { style: f }),
-        react.exports.createElement("span", { style: g }),
-        react.exports.createElement("span", { style: h })));
+    return react.exports.createElement("span", __assign$1({ style: style }, additionalprops));
 }
 
 var Button = function (_a) {
     var text = _a.text, loading = _a.loading, onClick = _a.onClick, active = _a.active, bg_color = _a.bg_color, text_color = _a.text_color, border_color = _a.border_color;
     return (React.createElement("div", { style: {
-            width: '100%',
-            display: 'flex',
-            cursor: 'pointer',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '1rem',
-            padding: '0.5rem 0.75rem',
-            borderRadius: '0.380rem',
-            fontWeight: '500',
-            transition: 'all 0.3s',
+            width: "100%",
+            display: "flex",
+            cursor: active ? "pointer" : "default",
+            alignItems: "center",
+            justifyContent: "center",
+            alignContent: 'center',
+            fontSize: "1rem",
+            borderRadius: "0.380rem",
+            fontWeight: "500",
+            transition: "all 0.3s",
             backgroundColor: bg_color,
             color: text_color,
             opacity: active ? 1 : 0.3,
             borderWidth: active ? 2 : 0,
-            borderColor: active ? border_color : 'transparent',
-            borderStyle: 'solid',
+            borderColor: active ? border_color : "transparent",
+            borderStyle: "solid",
         } },
         React.createElement("button", { onClick: onClick, disabled: loading || !active, style: {
-                width: '100%',
-                height: 'var(--button-height)',
-                padding: loading ? '1.25rem 0.75rem 0.5rem 0.75rem' : '0.5rem 0.75rem',
-                border: 'none',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                fontSize: '1rem',
-                letterSpacing: '0.05em',
-                fontWeight: 'bold',
-            } }, loading ? (React.createElement(FadeLoader, { color: "#B8C1CB", radius: 2, height: 6, margin: -5 })) : (React.createElement("span", null, text)))));
+                width: "100%",
+                height: "3.7rem",
+                border: "none",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                alignContent: 'center',
+                fontSize: "1rem",
+                letterSpacing: "0.05em",
+                fontWeight: "bold",
+                backgroundColor: "transparent",
+            } }, loading ? (React.createElement(ClipLoader, { color: "#B8C1CB" })) : (React.createElement("span", null, text)))));
 };
 
 /******************************************************************************
