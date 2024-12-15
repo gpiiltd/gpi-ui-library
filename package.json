@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/gpiiltd"
   },
-  "version": "0.0.4",
+  "version": "0.0.18",
   "description": "GPI UI component library",
   "scripts": {
     "rollup": "rollup -c",
